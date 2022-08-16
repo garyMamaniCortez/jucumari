@@ -41,5 +41,6 @@ In your terminal execute:
 ```
 > cd PATH/TO/PROJECT/jucumari/tracker
 > npm install
+> npm install -g ionic cordova
 > ionic serve
 ```
