@@ -34,6 +34,7 @@ In your terminal execute:
 ```
 > cd PATH/TO/PROJECT/jucumari/tracker-web
 > npm install
+> npm install -g @angular/cli
 > ng serve
 ```
 ### Run Ionic
