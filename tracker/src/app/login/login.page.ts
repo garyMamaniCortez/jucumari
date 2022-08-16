@@ -13,14 +13,14 @@ export class LoginPage{
   @ViewChild(IonSlides) slides: IonSlides;
   
   constructor(public navCtrl: NavController,
-    private alertController: AlertController) {}
+              public alertController: AlertController) {}
 
 
   async mostratInput(){
     const alert = await this.alertController.create({
       header: 'Ingrese su codigo',
       inputs: [{
-        placeholder: 'Username'
+        placeholder: 'Codigo'
       }],
       buttons: [{
         text: 'Cancelar',
