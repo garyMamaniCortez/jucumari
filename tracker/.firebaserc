@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tracker-2c9c8"
+  },
+  "targets": {
+    "tracker-2c9c8": {
+      "hosting": {
+        "app": [
+          "tracker-2c9c8"
+        ]
+      }
+    }
+  }
+}

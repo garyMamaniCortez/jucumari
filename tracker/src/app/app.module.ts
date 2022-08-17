@@ -7,11 +7,33 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPage } from './login/login.page';
+import { UsuarioService } from './usuario.service';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment.prod';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { LandingPipe } from './landing.pipe';
+import { UbicacionService } from './ubicacion.service';
+
+import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
+
+import { GoogleMapsModule } from '@angular/google-maps'
+
+
+
 
 @NgModule({
-  declarations: [AppComponent, LoginPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  declarations: [AppComponent, LoginPage, LandingPipe],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    AngularFireModule.initializeApp(environment.firebase), 
+    AngularFirestoreModule,
+    IonicStorageModule.forRoot(),
+    GoogleMapsModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UsuarioService, UbicacionService, Geolocation],
   bootstrap: [AppComponent],
   entryComponents: [LoginPage]
 })

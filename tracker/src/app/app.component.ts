@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { HomePage } from './home/home.page';
 import { LoginPage } from './login/login.page';
+import { UsuarioService } from './usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,16 @@ import { LoginPage } from './login/login.page';
 })
 export class AppComponent {
   rootPage:any;
-  constructor(platform: Platform,) {
+  constructor(platform: Platform,public _usuarioProv: UsuarioService) {
     platform.ready().then(()=>{
-      this.rootPage = LoginPage;
+      _usuarioProv.cargarStorage().then(existe=>{
+        if(existe){
+          this.rootPage = HomePage;
+        }else{
+          this.rootPage = LoginPage;
+        }
+      })
+      
     })
   }
 }
