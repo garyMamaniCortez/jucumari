@@ -17,8 +17,7 @@ import { LandingPipe } from './landing.pipe';
 import { UbicacionService } from './ubicacion.service';
 
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
-
-import { GoogleMapsModule } from '@angular/google-maps'
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -31,10 +30,10 @@ import { GoogleMapsModule } from '@angular/google-maps'
     AppRoutingModule, 
     AngularFireModule.initializeApp(environment.firebase), 
     AngularFirestoreModule,
-    IonicStorageModule.forRoot(),
-    GoogleMapsModule],
+    IonicStorageModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, UsuarioService, UbicacionService, Geolocation],
   bootstrap: [AppComponent],
-  entryComponents: [LoginPage]
+  entryComponents: [LoginPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
