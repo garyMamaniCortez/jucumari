@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { DriversListComponent } from './components/drivers-list/drivers-list.component'
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   exports:[
@@ -14,13 +16,15 @@ import { MatToolbarModule } from '@angular/material/toolbar'
   declarations: [
     AppComponent,
     MapComponent,
-    NavbarComponent
+    NavbarComponent,
+    DriversListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GoogleMapsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
