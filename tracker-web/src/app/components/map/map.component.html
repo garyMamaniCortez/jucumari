@@ -1,2 +1,25 @@
 <app-navbar></app-navbar>
-<google-map  width="100%" [center]="position"></google-map>
+<div class="row pad-10">
+    <div class="col-8">
+        <h2>MAPA</h2>
+        <google-map width="100%" [center]="position" >
+            <div *ngIf="formatMap">
+                <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
+                [options]="markerOptions"></map-marker>
+            </div>
+           
+        </google-map>
+    </div>
+    <div class="col-4">
+        <h2>MOVILES</h2>
+        <div class="list-group">
+            <a (click)="seguir(taxi)" class="list-group-item list-group-item-action" *ngFor="let taxi of taxistas">
+                {{taxi.nombre}}
+            </a>
+            <button *ngIf="siguiendoNombre" (click)="dejarDeSeguir()" class="btn btn-primary btn-block">
+                Dejar de seguir
+            </button>
+
+        </div>
+    </div>
+</div>
