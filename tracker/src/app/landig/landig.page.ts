@@ -27,9 +27,16 @@ export class LandigPage implements OnInit {
     this.name=localStorage.getItem('clave')
    this.interval=setInterval(()=>this.markTaxi(),5000)
   }
+  ngOnDestroy() {
+    if(this.interval) {
+      clearInterval(this.interval);
+    }
+  }
   ngAfterViewInit(){
     this.createMap()
-  
+  }
+  endTrip(){
+    this.navCtrl.navigateRoot('')
   }
   async markTaxi()
   {
